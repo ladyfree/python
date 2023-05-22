@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="플레이메타 - DISC 행동유형 검사" />
+    <meta property="og:description" content="플레이메타 - DISC 행동유형 검사" />
+    <meta property="og:image" content="공유할 이미지" />
+
     <title>DISC 행동유형 검사</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
@@ -13,6 +20,25 @@
         .table-bordered tbody td:hover {
             background-color: #daf7f4;
         }
+        .head {
+            display: flex;
+        }
+        .disc_title
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile {
+                    width: 200px;
+                    height: 200px;
+                    border-radius: 10%;
+                    border: 2px solid white;
+                    background-image: url('disc.jpg');
+                    background-position: center;
+                    background-size: cover;
+                }
     </style>
     <script>
         // 질문과 각 선택지에 대한 정보를 배열로 정의합니다.
@@ -264,7 +290,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>DISC 행동유형 검사</h1>
+        <div class= "head">
+            <div class="profile"></div>
+            <div class="disc_title"><h1>DISC<br>행동유형 검사</h1></div>
+        </div>
+        
         <br>
         각 문항중 자신이게 <font color="red">맞는 문항</font>을 하나 골라서 클릭하세요.<br>
         고민하지 말고, 즉각 떠오르는 대로 선택하세요.<br>
