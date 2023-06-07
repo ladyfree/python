@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>욕구가 불충족될 때 감정 단어</title>
+    <style>
+        .menu {
+            list-style-type: none;
+            display: flex;
+            padding: 0;
+            margin: 1;
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+    
+        .menu li {
+            margin-right: 5px;
+            position: relative;
+            display: inline-block;
+            padding: 5px;
+            background-color: #f2f2f2;
+            cursor: pointer;
+            transition: background-color 0.3s ease;            
+        }
+    
+        .menu li:hover .submenu {
+            display: block;
+        }
+
+        .menu li a {
+        color: #333;
+        text-decoration: none;
+        }
+
+        .menu ul li:hover {
+            background-color: #a4bafd;
+        }
+
+        .submenu {
+            display: none;
+            padding-left: 1px;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #f8f8f8;
+            padding: 1;
+            margin: 1;
+            min-width: 200px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+    
+        .submenu li {
+            padding: 5px;
+            width: 100%;
+            display: block;
+            transition: background-color 0.3s ease;
+        }
+
+
+
+        /* 다채로운 색상을 적용하세요 */
+        .menu li:nth-child(1) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(2) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(3) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(4) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(5) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(6) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(7) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(8) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(9) {
+            background-color: #b7d6f6b9;
+        }
+
+        .menu li:nth-child(10) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(11) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(12) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(13) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(14) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(15) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(16) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(17) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(18) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(19) {
+            background-color: #b6ecf2b9;
+        }
+
+        .menu li:nth-child(20) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(21) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(22) {
+            background-color: #b6ecf2b9;
+        }
+        
+        .menu li:nth-child(23) {
+            background-color: #b8f6d2b9;
+        }
+        
+        .menu li:nth-child(24) {
+            background-color: #b7d6f6b9;
+        }
+        
+        .menu li:nth-child(25) {
+            background-color: #b6ecf2b9;
+        }
+    </style>
+</head>
+<body>
+    <ul class="menu">
+      <li>걱정/긴장/두려움/불안
+        <ul class="submenu">
+            <li>가슴이 두근거리는</li>
+            <li>걱정스러운(되는)</li>
+            <li>겁나는</li>
+            <li>겁먹은</li>
+            <li>경외(외경)하는</li>
+            <li>굳어버린(두려워서)</li>
+            <li>긴장된</li>
+            <li>다리가 후들거리는</li>
+            <li>두려운</li>
+            <li>떨리는</li>
+            <li>무서운</li>
+            <li>발이 떨어지지 않는</li>
+            <li>불안한</li>
+            <li>소름끼치는</li>
+            <li>손에 땀을 쥐게 하는</li>
+            <li>숨을 죽이게 하는</li>
+            <li>숨이 막힐 것 같은</li>
+            <li>심장이 멎는 것 같은</li>
+            <li>애 타는</li>
+            <li>얼어붙은</li>
+            <li>여유 없는</li>
+            <li>염려하는</li>
+            <li>조급한</li>
+            <li>조마조마한</li>
+            <li>조바심 나는</li>
+            <li>조심스러운</li>
+            <li>진땀나는</li>
+            <li>초조한</li>
+        </ul>
+    </li>
+    <li>고민스러움/압박감/성가심
+        <ul class="submenu">
+            <li>심란한</li>
+            <li>고민되는</li>
+            <li>답답한</li>
+            <li>성가신</li>
+            <li>짜증스러운</li>
+            <li>불편한</li>
+            <li>마음이 복잡한</li>
+            <li>힘겨운</li>
+            <li>부담스러운</li>
+            <li>중압감을 느끼는</li>
+            <li>낭패 본(당한)</li>
+            <li>난감한</li>
+            <li>거슬리는</li>
+            <li>신경이 날카로운</li>
+            <li>귀찮은</li>
+            <li>예민해진</li>
+            <li>민감해진</li>
+            <li>수심에 찬</li>
+        </ul>
+    </li>
+    <li>고통스러움/상처받음/외로움
+        <ul class="submenu">
+            <li>가슴이 찢어지는</li>
+            <li>고독한</li>
+            <li>고립된</li>
+            <li>고통스러운</li>
+            <li>괴로운</li>
+            <li>비참한</li>
+            <li>상처받은</li>
+            <li>속상한</li>
+            <li>쓸쓸한</li>
+            <li>억울한</li>
+            <li>억장이 무너지는</li>
+            <li>외로운</li>
+            <li>원통한</li>
+            <li>참담한</li>
+            <li>처량한</li>
+            <li>처절한</li>
+            <li>한 맺힌</li>
+            <li>한스러운</li>
+        </ul>
+    </li>
+    <li>놀람/충격
+        <ul class="submenu">
+            <li>경악을 금치 못하는</li>
+            <li>기막힌</li>
+            <li>깜짝 놀란</li>
+            <li>놀란</li>
+            <li>덜컥하는</li>
+            <li>쇼크 먹은</li>
+            <li>아연실색하는</li>
+            <li>아찔한</li>
+            <li>어안이 벙벙한</li>
+            <li>움찔하는</li>
+            <li>충격적인</li>
+            <li>하늘이 무너지는</li>
+            <li>할 말을 잃은</li>
+            <li>황당한</li>
+        </ul>
+    </li>
+    <li>단절감/마비
+        <ul class="submenu">
+            <li>거리감이 느껴지는</li>
+            <li>냉담한</li>
+            <li>냉랭한</li>
+            <li>넋이 나간</li>
+            <li>단절된</li>
+            <li>마비된</li>
+            <li>마음이 닫힌</li>
+            <li>멍한</li>
+            <li>몽롱한</li>
+            <li>무감각한</li>
+            <li>무감동한</li>
+            <li>무관심한</li>
+            <li>무신경한</li>
+            <li>무심한</li>
+            <li>물러선</li>
+            <li>시큰둥한</li>
+            <li>심드렁한</li>
+            <li>싸늘한</li>
+            <li>얼이 빠진</li>
+            <li>재미없는</li>
+            <li>정신을 잃은</li>
+            <li>흥미 없는</li>
+        </ul>
+    </li>
+    <li>당황/수치심/죄책감
+        <ul class="submenu">
+            <li>겸연쩍은</li>
+            <li>곤혹스러운</li>
+            <li>난처한</li>
+            <li>당혹스러운</li>
+            <li>당황한</li>
+            <li>마음이 무거운</li>
+            <li>멋쩍은</li>
+            <li>미안한</li>
+            <li>민망한</li>
+            <li>부끄러운</li>
+            <li>수줍은</li>
+            <li>수치스러운</li>
+            <li>쑥스러운</li>
+            <li>죄스러운/죄책감 드는</li>
+            <li>창피한</li>
+        </ul>
+    </li>
+    <li>부러움/간절함
+        <ul class="submenu">
+            <li>간절한</li>
+            <li>못 견디는</li>
+            <li>부러운</li>
+            <li>샘나는</li>
+            <li>안달하는</li>
+            <li>애 타는</li>
+            <li>절실한</li>
+            <li>조급한</li>
+            <li>질투 나는</li>
+            <li>참지 못하는</li>
+        </ul>
+    </li>
+    <li>분노/화
+        <ul class="submenu">
+            <li>화난</li>
+            <li>분 한</li>
+            <li>울화가 치미는</li>
+            <li>분 개 한</li>
+            <li>격분한</li>
+            <li>성난</li>
+            <li>열 받은</li>
+            <li>신경질 나는</li>
+            <li>짜증나는</li>
+            <li>약오른</li>
+            <li>노여운</li>
+            <li>노한</li>
+            <li>격노한</li>
+            <li>분격한</li>
+            <li>격앙된</li>
+        </ul>
+      </li>
+      <li>불만족/좌절/서운함
+        <ul class="submenu">
+            <li>고까운</li>
+            <li>기분 상한</li>
+            <li>낙담한</li>
+            <li>뒤틀린</li>
+            <li>뚱한</li>
+            <li>망연자실한</li>
+            <li>불만인</li>
+            <li>불만족한</li>
+            <li>불쾌한</li>
+            <li>서운한</li>
+            <li>섭섭한</li>
+            <li>시무룩한</li>
+            <li>실망한</li>
+            <li>심통 나는</li>
+            <li>야속한</li>
+            <li>욕구불만인</li>
+            <li>원망스러운</li>
+            <li>좌절하는</li>
+        </ul>
+      </li>
+    <li>불안정감/혼란/의혹
+        <ul class="submenu">
+            <li>개운치 않은</li>
+            <li>경계심을 느끼는</li>
+            <li>기분(마음)이 오락가</li>
+            <li>락 하는</li>
+            <li>동요되는</li>
+            <li>마음이 안 놓이는</li>
+            <li>마음이 어지러운</li>
+            <li>마음이 펀치 않은</li>
+            <li>망설이는</li>
+            <li>미심찍은</li>
+            <li>미 칠 것 같은</li>
+            <li>불안정한</li>
+            <li>불편한</li>
+            <li>산란한</li>
+            <li>산만한</li>
+            <li>생소한</li>
+            <li>신경 쓰이는</li>
+            <li>아리송한</li>
+            <li>안심이 안 되는</li>
+            <li>안절부절못하는</li>
+            <li>애증이 교차하는</li>
+            <li>어리둥절한</li>
+            <li>어쩔 줄 모르는</li>
+            <li>얼떨떨한</li>
+            <li>의구심이 드는</li>
+            <li>의심스러운</li>
+            <li>의아한</li>
+            <li>의혹을 느끼는</li>
+            <li>좋았다 싫었다 하는</li>
+            <li>주저하는</li>
+            <li>진퇴양난인</li>
+            <li>찜찜한</li>
+            <li>혼란스러운</li>
+            <li>혼미한</li>
+        </ul>
+    </li>
+    <li>슬픔/절망/무기력
+        <ul class="submenu">
+            <li>기운 없는</li>
+            <li>눈물이 나는</li>
+            <li>눈시울이 뜨거워지는</li>
+            <li>막막한</li>
+            <li>맥 빠진</li>
+            <li>무기력한</li>
+            <li>불행한</li>
+            <li>상심한</li>
+            <li>서글픈</li>
+            <li>서러운</li>
+            <li>슬픈</li>
+            <li>암담한</li>
+            <li>앞이 안 보이는</li>
+            <li>우울한</li>
+            <li>울고 싶은</li>
+            <li>울적한</li>
+            <li>위축된</li>
+            <li>의기소침한</li>
+            <li>의욕 없는</li>
+            <li>절망하는</li>
+            <li>주눅 든</li>
+            <li>침울한</li>
+            <li>코가 시큰한</li>
+            <li>희망이 없는</li>
+            <li>힘 빠진</li>
+            <li>힘없는</li>
+        </ul>
+    </li>
+    <li>아쉬움/연민/허전함
+        <ul class="submenu">
+            <li>공허한</li>
+            <li>그리운</li>
+            <li>불쌍한</li>
+            <li>상실감을 느끼는</li>
+            <li>아쉬운</li>
+            <li>안쓰러운</li>
+            <li>안타까운</li>
+            <li>애끓는</li>
+            <li>애도하는</li>
+            <li>애절한</li>
+            <li>애처로운</li>
+            <li>연민을 느끼는</li>
+            <li>짠한</li>
+            <li>착잡한</li>
+            <li>허무한</li>
+            <li>허전한</li>
+            <li>허탈한</li>
+            <li>후회하는</li>
+        </ul>
+    </li>
+    <li>지루함
+        <ul class="submenu">
+            <li>권태로운</li>
+            <li>단조로운</li>
+            <li>무료한</li>
+            <li>물린</li>
+            <li>식상한</li>
+            <li>심심한</li>
+            <li>지겨운</li>
+            <li>지루한</li>
+        </ul>
+    </li>
+    <li>피로감/지침
+        <ul class="submenu">
+            <li>기운 빠진.</li>
+            <li>녹초가 된</li>
+            <li>소진된</li>
+            <li>졸린</li>
+            <li>지친</li>
+            <li>처지는</li>
+            <li>탈진한</li>
+            <li>피곤한</li>
+            <li>피로한</li>
+            <li>힘든</li>
+        </ul>
+    </li>
+    <li>혐오감/미움
+        <ul class="submenu">
+            <li>거북한</li>
+            <li>거부감이 느껴지는</li>
+            <li>경멸스러운</li>
+            <li>느끼한</li>
+            <li>넌더리나는</li>
+            <li>메스꺼운</li>
+            <li>멸시하는</li>
+            <li>모욕적인</li>
+            <li>모멸감을 느끼는</li>
+            <li>못마땅한</li>
+            <li>미운</li>
+            <li>밉살스러운</li>
+            <li>반감을 느끼는</li>
+            <li>불쾌한</li>
+            <li>섬뜩한</li>
+            <li>소름끼치는</li>
+            <li>싫은</li>
+            <li>싫증나는</li>
+            <li>얄미운</li>
+            <li>역겨운</li>
+            <li>원한을 품은</li>
+            <li>적개심을 느끼는</li>
+            <li>적의를 느끼는</li>
+            <li>증오하는</li>
+            <li>질색하는</li>
+            <li>치욕스러운</li>
+            <li>혐오스러운</li>
+        </ul>
+    </li>
+    </ul>
+
+    <script>
+        const submenus = document.querySelectorAll('.submenu li');
+        submenus.forEach(submenu => {
+            submenu.addEventListener('click', () => {
+                const menuName = submenu.innerText;
+                const googleSearchURL = `https://ko.dict.naver.com/#/search?query=${encodeURIComponent(menuName)}`;
+                window.open(googleSearchURL, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>
