@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="플레이메타 - DISC 행동유형 검사" />
+    <meta property="og:description" content="플레이메타 - DISC 행동유형 검사" />
+    <meta property="og:image" content="공유할 이미지" />
+
+    <title>DISC 행동유형 검사</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+
+        #player_name {
+            width: calc(100% - 20px);
+            padding: 2px;
+        }
+        .question-container {
+            margin-bottom: 30px;
+        }
+        .choice-button {
+            width: 500px;
+        }
+        .table-bordered tbody td:hover {
+            background-color: #015da8;
+        }
+        .head {
+            display: flex;
+        }
+        .disc_title
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: left;
+            padding: 5px;
+        }
+        .closeContainer
+        {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: right;
+            padding: 2px 2px 0px 85%;
+        }
+
+        .disc_profile
+        {
+            width: 120px;
+            height: 120px;
+            border: 2px solid white;
+            background-image: url('disc.png');
+            background-position: center;
+            background-size: cover;
+        }
+        table {
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+        }        
+    </style>
+    <script>
+        // 질문과 각 선택지에 대한 정보를 배열로 정의합니다.
+        var questions = [
+            { question: "질문 1", choices: [
+                { text: "절제하는" , value: "S" },
+                { text: "강력한" , value: "D" },
+                { text: "꼼꼼한" , value: "C" },
+                { text: "표현력 있는" , value: "I" },
+            ] },
+            { question: "질문 2", choices: [
+                { text: "개척적인" , value: "D" },
+                { text: "정확한" , value: "C" },
+                { text: "흥미진진한" , value: "I" },
+                { text: "만족스러운" , value: "S" },
+            ] },
+            { question: "질문 3", choices: [
+                { text: "기꺼이 하는" , value: "S" },
+                { text: "활기 있는" , value: "I" },
+                { text: "대담한" , value: "D" },
+                { text: "정교한" , value: "C" },
+            ] },
+            { question: "질문 4", choices: [
+                { text: "논쟁을 좋아하는" , value: "D" },
+                { text: "회의적인" , value: "C" },
+                { text: "주저하는" , value: "S" },
+                { text: "예측할 수 없는" , value: "I" },
+            ] },
+            { question: "질문 5", choices: [
+                { text: "공손한" , value: "C" },
+                { text: "사교적인" , value: "I" },
+                { text: "참을성이 있는" , value: "S" },
+                { text: "무서움을 모르는" , value: "D" }, 
+            ] },
+            { question: "질문 6", choices: [
+                { text: "설득력 있는" , value: "I" },
+                { text: "독립심이 강한" , value: "D" },
+                { text: "논리적인" , value: "C" },
+                { text: "온화한" , value: "S" },
+            ] },
+            { question: "질문 7", choices: [
+                { text: "신중한" , value: "C" },
+                { text: "차분한" , value: "S" },
+                { text: "과단성 있는" , value: "D" },
+                { text: "파티를 좋아하는" , value: "I" },
+            ] },
+            { question: "질문 8", choices: [
+                { text: "인기 있는" , value: "I" },
+                { text: "고집이 있는" , value: "D" },
+                { text: "완벽주의자" , value: "C" },
+                { text: "인심 좋은" , value: "S" },
+            ] },            
+            // { question: "질문 9", choices: [
+            //     { text: "변화가 많은" , value: "I" },
+            //     { text: "수줍음을 타는" , value: "C" },
+            //     { text: "느긋한" , value: "S" },
+            //     { text: "완고한" , value: "D" },
+            // ] },
+            // { question: "질문 10", choices: [
+            //     { text: "체계적인" , value: "C" },
+            //     { text: "낙관적인" , value: "I" },
+            //     { text: "의지가 강한" , value: "D" },
+            //     { text: "친절한" , value: "S" },
+            // ] },
+            // { question: "질문 11", choices: [
+            //     { text: "엄격한" , value: "D" },
+            //     { text: "겸손한" , value: "C" },
+            //     { text: "상냥한" , value: "S" },
+            //     { text: "말주변이 좋은" , value: "I" }, 
+            // ] },
+            // { question: "질문 12", choices: [
+            //     { text: "호의적인" , value: "S" },
+            //     { text: "빈틈없는" , value: "C" },
+            //     { text: "놀기 좋아하는" , value: "I" },
+            //     { text: "의지가 강한" , value: "I" },
+            // ] },
+            // { question: "질문 13", choices: [
+            //     { text: "참신한" , value: "I" },
+            //     { text: "모험적인" , value: "D" },
+            //     { text: "절제된" , value: "C" },
+            //     { text: "신중한" , value: "S" },
+            // ] },
+            // { question: "질문 14", choices: [
+            //     { text: "참는" , value: "C" },
+            //     { text: "성실한" , value: "S" },
+            //     { text: "공격적인" , value: "D" },
+            //     { text: "매력 있는" , value: "I" },
+            // ] },
+            // { question: "질문 15", choices: [
+            //     { text: "열정적인" , value: "I" },
+            //     { text: "분석적인" , value: "C" },
+            //     { text: "동정심이 많은" , value: "S" },
+            //     { text: "단호한" , value: "D" },
+            // ] },
+            // { question: "질문 16", choices: [
+            //     { text: "지도력 있는" , value: "D" },
+            //     { text: "충동적인" , value: "I" },
+            //     { text: "느린" , value: "S" },
+            //     { text: "비판적인" , value: "C" },
+            // ] },
+            // { question: "질문 17", choices: [
+            //     { text: "일관성 있는" , value: "C" },
+            //     { text: "영향력 있는" , value: "D" },
+            //     { text: "생기 있는" , value: "I" },
+            //     { text: "느긋한" , value: "S" },
+            // ] },
+            // { question: "질문 18", choices: [
+            //     { text: "유력한" , value: "I" },
+            //     { text: "친절한" , value: "S" },
+            //     { text: "독립적인" , value: "D" },
+            //     { text: "정돈된" , value: "C" },
+            // ] },
+            // { question: "질문 19", choices: [
+            //     { text: "이상주의적인" , value: "C" },
+            //     { text: "평판이 좋은" , value: "I" },
+            //     { text: "쾌활한" , value: "S" },
+            //     { text: "솔직한" , value: "D" },
+            // ] },
+            // { question: "질문 20", choices: [
+            //     { text: "참을성 없는" , value: "D" },
+            //     { text: "진지한" , value: "C" },
+            //     { text: "미루는" , value: "S" },
+            //     { text: "감성적인" , value: "I" },
+            // ] },
+            // { question: "질문 21", choices: [
+            //     { text: "경쟁심이 있는" , value: "D" },
+            //     { text: "자발적인" , value: "I" },
+            //     { text: "충성스러운" , value: "S" },
+            //     { text: "사려 깊은" , value: "C" },
+            // ] },
+            // { question: "질문 22", choices: [
+            //     { text: "희생적인" , value: "C" },
+            //     { text: "이해심 많은" , value: "S" },
+            //     { text: "설득력 있는" , value: "I" },
+            //     { text: "용기 있는" , value: "D" },
+            // ] },
+            // { question: "질문 23", choices: [
+            //     { text: "의존적인" , value: "S" },
+            //     { text: "변덕스러운" , value: "I" },
+            //     { text: "절제력 있는" , value: "C" },
+            //     { text: "밀어붙이는" , value: "D" },
+            // ] },        
+            // { question: "질문 24", choices: [
+            //     { text: "포용력 있는" , value: "S" }, 
+            //     { text: "전통적인" , value: "C" },
+            //     { text: "사람을 부추기는" , value: "I" },
+            //     { text: "이끌어가는" ,value: "D" },
+            // ] },        
+        ];
+
+        //var userAnswers = [];
+        var userAnswers = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; //24개 답변
+        var currentQuestionIndex = 0;
+
+        function displayQuestion() {
+            var questionContainer = document.getElementById("questionContainer");
+            questionContainer.innerHTML = ""; // 기존 내용을 초기화합니다.
+
+            var question = questions[currentQuestionIndex];
+
+            var questionText = document.createElement("p");
+            questionText.textContent = question.question+"/"+ questions.length;
+            questionContainer.appendChild(questionText);
+
+            var choices = question.choices;
+            for (var i = 0; i < choices.length; i++) {
+                var choice = choices[i];
+
+                var choiceButton = document.createElement("button");
+                choiceButton.textContent = choice.text;
+                choiceButton.value = choice.value;
+                choiceButton.classList.add("btn", "btn-primary", "mr-2", "choice-button");
+                choiceButton.addEventListener("click", function () {
+                    var selectedValue = this.value;
+                    //userAnswers.push(selectedValue);
+                    userAnswers[currentQuestionIndex] = selectedValue;
+                    nextQuestion();
+                });
+                // 2줄 추가
+                var questionText = document.createElement("p");
+                questionContainer.appendChild(questionText);
+
+                questionContainer.appendChild(choiceButton);
+            }
+        }
+
+        function nextQuestion() {
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                displayQuestion();
+            } else {
+                displayResult();
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestionIndex > 0 ) {
+                currentQuestionIndex--;
+                displayQuestion();
+            }
+        }        
+
+        function calculateScore() {
+            var scoreCounts = { D: 0, I: 0, S: 0, C: 0 };
+
+            for (var i = 0; i < userAnswers.length; i++) {
+                var answer = userAnswers[i];
+                scoreCounts[answer]++;
+            }
+            return scoreCounts;
+        }
+
+        function displayResult() {
+            var scoreCounts = calculateScore();
+            restartTest();
+            var resultContainer = document.getElementById("questionContainer");
+            resultContainer.innerHTML = ""; // 기존 내용을 초기화합니다.
+
+            var resultTable = document.createElement("table");
+            resultTable.classList.add("table", "table-bordered");
+
+            var thead = document.createElement("thead");
+            var titleRow = document.createElement("tr");
+            var titleCell = document.createElement("th");
+            titleCell.textContent = "결과";
+            titleRow.appendChild(titleCell);
+            var titleCell1 = document.createElement("th");
+            titleCell1.textContent = "D";
+            titleRow.appendChild(titleCell1);            
+            var titleCell2 = document.createElement("th");
+            titleCell2.textContent = "I";
+            titleRow.appendChild(titleCell2);            
+            var titleCell2 = document.createElement("th");
+            titleCell2.textContent = "S";
+            titleRow.appendChild(titleCell2);            
+            var titleCell2 = document.createElement("th");
+            titleCell2.textContent = "C";
+            titleRow.appendChild(titleCell2);            
+            thead.appendChild(titleRow);
+            resultTable.appendChild(thead);
+
+            var tbody = document.createElement("tbody");
+            var resultRow = document.createElement("tr");
+            var countCell1 = document.createElement("td");
+            countCell1.textContent = '합계';
+            resultRow.appendChild(countCell1);
+            for (var key in scoreCounts) {
+                var countCell = document.createElement("td");
+                countCell.textContent = scoreCounts[key];
+                resultRow.appendChild(countCell);
+            }
+            tbody.appendChild(resultRow);
+            resultTable.appendChild(tbody);
+
+            resultContainer.appendChild(resultTable);
+            printButton();
+        }
+
+
+        // 버튼을 생성하는 함수
+        function printButton() {
+            var button = document.createElement("button"); // <button> 요소 생성
+            button.innerHTML = "결과전체조회"; // 버튼 텍스트 설정
+
+            // 버튼 클릭 이벤트 처리
+            button.addEventListener("click", function() {
+                printResult();
+            });
+            var container = document.getElementById("questionContainer"); // 버튼이 추가될 컨테이너 요소
+            container.appendChild(button); // 버튼을 컨테이너에 추가
+        }
+
+        function printResult() {
+            // 질문과 선택지를 HTML 테이블의 행과 셀로 동적으로 추가합니다.
+            var questionContainer = document.getElementById("questionContainer");
+            for (var i = 0; i < questions.length; i++) {
+                var question = questions[i];
+                var row = document.createElement("tr");
+
+                var questionCell = document.createElement("td");
+                questionCell.textContent = question.question;
+                row.appendChild(questionCell);
+
+                for (var j = 0; j < question.choices.length; j++) {
+                    var choiceInput = document.createElement("input");
+                    choiceInput.type = "radio";
+                    choiceInput.name = "question" + i;
+                    choiceInput.value = j;
+                    choiceInput.addEventListener("click", (function (qIndex, cIndex) {
+                        return function () {
+                            selectAnswer(qIndex, cIndex);
+                        };
+                    })(i, j));
+
+                    // var choiceCell = document.createElement("td");
+                    // choiceCell.appendChild(choiceInput);
+                    var choiceCell = document.createElement("td");
+                    row.appendChild(choiceCell);
+                    var choiceLabel = document.createElement("label");
+                    choiceLabel.appendChild(choiceInput);
+                    choiceLabel.appendChild(document.createTextNode(question.choices[j].text));
+
+                    choiceCell.appendChild(choiceLabel);
+                    row.appendChild(choiceCell);
+                }
+                questionContainer.appendChild(row);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class= "head">
+            <div class="disc_profile"></div>
+            <div class="disc_title">
+                <div></div><h1>DISC</h1>
+                <h2>행동유형 검사</h2>
+                <span id="player_name"> nick_name : </span>
+            </div>
+        </div>
+        각 문항 중 자신이게 <font color="red">맞는 문항</font>을 하나 골라서 클릭하세요.<br>
+        고민하지 말고, 즉각 떠오르는 대로 선택하세요.<br>
+        <br>
+        <div id="questionContainer" class="question-container"></div>
+        <div id="resultContainer"></div>
+        <div id="restartButtonContainer">
+            <button class="btn btn-primary" onclick="restartTest()">다시 하기</button>
+            <button class="btn btn-primary" onclick="previousQuestion()">앞으로 돌아가기</button>
+            <div class="closeContainer">
+                <button onclick="closeWidget()"> 닫기 </button>
+            </div>             
+        </div> 
+    </div>
+
+    <script>
+        var _name;
+        window.addEventListener('message', function(e) {
+            _name = e.data.player_name;
+            document.getElementById('player_name').innerText = 'nick name : '+ _name;
+        });
+
+        displayQuestion();
+
+        function restartTest() {
+            userAnswers = [];
+            currentQuestionIndex = 0;
+            displayQuestion();
+            var resultContainer = document.getElementById("resultContainer");
+            resultContainer.innerHTML = "";
+            var restartButtonContainer = document.getElementById("restartButtonContainer");
+            //restartButtonContainer.style.display = "none";
+        };
+        
+        function closeWidget() {
+            // App으로 메시지를 보냄.
+            let _type = "close"
+            window.parent.postMessage(
+                {type: _type ,},
+                //"close",
+                "*"
+            );
+        };
+    </script>
+</body>
+</html>
