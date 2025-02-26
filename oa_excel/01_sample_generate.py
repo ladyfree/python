@@ -21,6 +21,20 @@ def random_string(length):
         result += random.choice(alphabet_samples)
     return result
 
+# 이름 생성에 사용할 샘플 글자들을 정의합니다.
+name1_samples = "김이박최정강조윤장임"
+name2_samples = "민서예지도하주윤채현지"
+name3_samples = "준윤우원호후서연아은진"
+
+# 무작위로 사람 이름을 생성하는 함수입니다.
+def random_name():
+    result = ""
+    result = random.choice(name1_samples) # 첫번째 이름 생성
+    result = result + random.choice(name2_samples) # 두번째 이름 생성
+    result = result + random.choice(name3_samples) # 세번째 이름 생성
+    
+    return result
+
 # 작업 시작 메시지를 출력합니다.
 print("Process Start ")
 
@@ -46,6 +60,11 @@ for i in range(MAX_NUM):
     # 결과물 파일을 생성합니다. 텅 빈 파일이 생성됩니다.
     # file id 를 outfile, 파일명을 filename, 쓰기 모드로 파일을 지정합니다.
     outfile = open(filename, "w")
+    
+    # 이름 
+    names = random_name()
+    #print(names)
+    outfile.write('name : '+ names +'\n')
     
     # 핸드폰
     outfile.write('telephone : 010-'+ str(time.time())[-4:]+'-'+ str(time.time())[-6:-2]+'\n')
