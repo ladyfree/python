@@ -53,16 +53,17 @@ print(OUT_PATH ,"폴더를 생성했습니다.")
 # MAX_NUM 회수만큼 반복합니다.
 # 이를테면, MAX_NUM가 100이면 무작위 개인정보 생성을 100회 반복합니다.
 for i in range(MAX_NUM):
-
+    
+    # 이름 
+    names = random_name()
+    
     # 결과물 파일의 이름을 정의합니다.
-    filename = OUT_PATH  + str(i) + '_'+'personal'+ ".txt"
+    filename = OUT_PATH  + str(i) + '_'+ names + ".txt"
 
     # 결과물 파일을 생성합니다. 텅 빈 파일이 생성됩니다.
     # file id 를 outfile, 파일명을 filename, 쓰기 모드로 파일을 지정합니다.
     outfile = open(filename, "w")
-    
-    # 이름 
-    names = random_name()
+
     #print(names)
     outfile.write('name : '+ names +'\n')
     
